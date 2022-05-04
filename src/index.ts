@@ -9,13 +9,6 @@ const { env } = require('typed-dotenv').config();
 
 const server = fastify()
 
-let https;
-try {
-  https = require('node:https');
-} catch (err) {
-  console.log('https support is disabled!');
-}
-
 const { API_KEY, API_SECRET_KEY, SCOPES, SHOP, HOST, API_VERSION } = env
 
 Shopify.Context.initialize({
@@ -104,4 +97,4 @@ async function onRequest(
   } // end of default path
 } // end of onRequest()
 
-http.createServer(onRequest).listen(3000);
+// http.createServer(onRequest).listen(3000);
